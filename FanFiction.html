@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7kAWIH-lHhb-nQD9LrRBmjF5jmL2Hm63Ywg&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: black;
+	padding: 25px;
+  color: white;
+  background-image: url("https://wallpaperaccess.com/full/146104.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:50% 50%;
+	height: 500px;
+  box-shadow: 0 0 8px 8px black inset; /*match the box-shadow color with the bg color*/
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+.button {
+  background: linear-gradient(to bottom right, #d9520f, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #0b0a0a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  width: 60%;
+}
+
+.button:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.button:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+/* About me image */
+.badriimg {
+  background-color: #aaa;
+  width: 250px;
+  height: 300px;
+  padding: 20px;
+  background-image: url("data:image/jpeg;base64,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");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Halloween girl image */
+.halloweengirl {
+  background-color: #aaa;
+  width: 612px;
+  height: 380px;
+  padding: 20px;
+  background-image: url("https://www.crushpixel.com/big-static17/preview4/young-woman-with-halloween-paint-2628932.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  box-shadow: 0 0 8px 8px black inset; /*match the box-shadow color with the bg color*/
+}
+
+/* Kanjana maala & Moideen image */
+.kanjanamoideen{
+  background-color: #aaa;
+  width: 612px;
+  height: 380px;
+  padding: 20px;
+  background-image: url("https://www.nowrunning.com/content/movie/2014/Ennu-Ninte/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  box-shadow: 0 0 8px 8px black inset; /*match the box-shadow color with the bg color*/
+}
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+.halloween {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+   background-image: url("https://images.hdqwalls.com/download/happy-halloween-pumpkin-img-2560x1440.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+.love {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+   background-image: url("https://wallpaperaccess.com/full/1769186.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+.halloweenstory {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsCPj_mtJe3zsdlEErZL7h1ZnjLmT3cicyrA&usqp=CAU");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+.lovestory {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOaE9Aaadi0DvWkXVba8rSxh8aMo_sEgntlg&usqp=CAU");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 10px;
+  height: 100px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+#horrorchapter1 {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+#horrorchapter2 {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+#horrorchapter3 {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+#horrorchapter4 {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+#lovechap1 {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+#lovechap2 {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+#lovechap3 {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+#lovechap4 {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p style="color: black; text-align: right; font-weight: bold ; font-size:80px; font-family: 'Trebuchet MS', sans-serif;">FAN FICTION</p>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    
+    <div class="card halloween">
+      <h4 style="color:grey; font-family: Lucida Console, Courier New, monospace">YOU ARE READING...</h4>
+      <h2 style="color:grey;">JUDE's HALLOWEEN!</h2>
+      <p style="color: grey; font-size:15px; font-family: 'Trebuchet MS', sans-serif;">A Fan Fiction featuring Exorcist Ed and Lorraine Warren's daughter Jude, from the movie 'Conjuring'. This is a little story about the Halloween experience of Jude.</p5>
+      <div class="halloweengirl"></div>
+      <br>
+      <button class="button" onclick="horror1()">Read Chapter 1</button> 
+      <div class="halloweenstory" id="horrorchapter1" style="display: none;">
+        <p style="color:white; text-align: left; padding: 20px; font-family: Lucida Console, Courier New, monospace">Halloween wasn't really a big deal with the Warrens, usually. They mostly just let Judy dress up, go out for a while, then come back home. Ed was very nervous that Judy would get harmed, and Lorraine knew that the spirits and various demons that roamed around these parts quite enjoyed getting around that night. That is, until a few years ago. When you come into their lives, you appear like a hallucination and take over Warren's life like a whirlwind. You'd gotten close with Lorraine, and then Ed, and before any of you knew it you'd ended up in their bed. Six months later, the couple asked you to join their relationship as more than a bedmate, and you'd eagerly accept. That was two years ago. Now you live with them and are existing in lovely domestic bliss; besides the demons, of course.</p>
+        
+        <p style="color:white; text-align: left; padding: 20px; font-family: Lucida Console, Courier New, monospace">But today is Halloween, and for once, you've convinced both of them to let you take Judy out. You've already donned your costume, a rough rendition of Morticia Addams, and are helping Judy braid her hair into Dutch braids to match your theme as a teenage Wednesday. With one done, you move onto the second, and ask "So, are you excited?" The brunette smiles and replies "Um, yeah, of course I am! Mom and dad never let me go out for more than, like, thirty minutes." You chuckle, shaking your head at your partner's overprotectiveness. They obviously had a reason to be wary, and they weren't wrong in being nervous about this kind of thing. But they trust you, and you would never let Judy get hurt. Ever. Once you tie off the second braid, dropping it to lay against Judy's chest, you stand back up and clap your hands together, smiling proudly. "You look absolutely amazing, darling," you exclaim, and Judy grins, spinning in place to show you the whole costume. It looks amazing, of course, so after a bit of dark eyeshadow and eyeliner, she's done. You do the same for yourself, putting on your fake nails and makeup.</p>
+      </div>
+      <br>
+      <br>
+      <button class="button" onclick="horror2()">Read Chapter 2</button>
+      <div class="halloweenstory" id="horrorchapter2" style="display: none;">
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">With one last nod to yourself in the mirror, you gesture to the door for Judy to follow, and head out into the sitting room, where Lorraine and Ed sit together talking quietly between themselves. You clear your throat, gaining their attention, and the two brunettes glance over to you and their daughter. Fond smiles immediately bloom on both their faces, and Lorraine is the first to stand and approach you. She cups Judy's face between her hands, tilting it to the side and inspecting her work. Then she looks at you and says "You did wonderful, darling." You shrug, a smug smile playing on your lips as you state "Of course I did. I've been trick-or-treating since I was a kid, I know what I'm doing." Lorraine rolls her eyes playfully but steps in front of you anyway and presses a soft kiss to your lips as Ed also appears at her side, checking out his daughter and then your costumes, nodding in approval. "Wednesday and Morticia, eh?" he asks, and Judy nods eagerly, making the three of you chuckle. After a few more minutes of talking through the rules, you promise to stay safe and that you know how to take care of yourself, and give your partner's quick kisses, and you're off.</p>
+          
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">You quickly check your lipstick in the mirror by the door and sigh when you see it slightly messed up, quickly fixing it and calling out "You messed up my lipstick!" It's teasing, and faintly you hear Ed shout "Too bad!" and it makes you laugh. You don't get the chance to respond before Judy's dragging you out the door with a laugh of her own. A dark leather bag over Judy's shoulder, the two of you turn right and start heading down the block. You point out decorations and laugh when Judy's eyes light up at the bright lights and skeletons draped with spiderwebs. Within thirty minutes, you've gained at least a dozen compliments on your matching outfits, and have had four women say something along the lines of "Aww, how sweet, you and your daughter match!" and each time you laughed, thinking "If they only knew." Plus, Judy already's more candy than she's ever gotten in past years, apparently--it's a thought that makes you very happy, and quite proud of yourself.</p>
+      </div>
+      <br>
+      <br>
+      <button class="button" onclick="horror3()">Read Chapter 3</button>
+      <div class="halloweenstory" id="horrorchapter3" style="display: none;">
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">Soon, you approach a large house, dark and ominous; the perfect stereotypical Halloween mansion. You can feel Judy's nervousness from where you stand, and as much as you love the girl, you also know that no Halloween is complete without at least one scare. Plus, you know the people who live here, and they're amazing at that kind of thing--you've gotten spooked more than once here. So, with a little smirk, you gently push her up the walk and towards the house, mumbling "Go on, I'm sure it looks scarier than it is," and the girl believes you. You almost feel bad for taking advantage of her trust like this...but not quite. So you watch her take cautious steps towards the looming home, glancing rapidly side to side, just waiting for something to happen. But nothing does, and you see her relax almost imperceptibly. But not even seconds later, she lets out a scream as someone sprints at her in some sort of devil costume, running past her with a shout. Judy jumps backwards and you burst into laughter, holding your stomach as you cackle. Judy glares back at you and shouts something like "Screw you" It makes you gasp and hold your chest, calling back "Language, young lady!"</p>
+          
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">She just rolls her eyes and walks forward again, as confident as she can. It seems like the home owners are going easy this year as the only other scare they do is swinging the door open with a loud "boo!" that makes Judy jump back again, holding her chest and breathing heavily. The older lady in the doorway laughs, and holds out a whole handful of candy to drop into Judy's bag. She catches sight of you and another smile spreads across her face as she waves, calling out "Hey, y/n!" You smile back, jogging up towards the house as you reply "Evening, Diana!" The blonde asks how you've been and you shrug, making a so-so motion with your hand and saying "Pretty good. Taking Judy here out for her first proper Halloween," as you clap your "daughter"'s shoulder, an action which earns you a grumble from the girl. You exchange a few more words with Diana before dismissing yourself with a wave and returning with Judy to the sidewalk. Once you're away from the house, the girl mumbles "That was mean of you, y/n." You sigh, bending down a bit and apologizing for not telling her. "I'm sorry sweetheart. I just wanted to let you get in a good spook. I won't let it happen again, okay?"</p>
+      </div>
+      <br>
+      <br>
+      <button class="button" onclick="horror4()">Read Chapter 4</button>
+      <div class="halloweenstory" id="horrorchapter4" style="display: none;">
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">The brunette nods, and you two continue on with your night. But as it starts to get dark, and you check your watch to see it being nearly 9, you finally say "Alright, time to head back. Your parents will get worried." Judy sighs unhappily, but doesn't argue, knowing you're right. The two of you talk quietly about the night as you return home, Judy swinging her candy bag by her side with one hand and holding yours with the other. It only takes ten minutes or so before you've arrived, and you let Judy go inside first, closing the door behind her with a soft click before following the hyperactive child into the sitting room once again. Unsurprisingly, you find her parents sitting there, Lorraine cuddled up against Ed's side, who has his arm around her shoulder. She looks to be napping, but wakes as soon as Judy skips into the room, exclaiming "Mom, dad! We're back!" The woman sits up quickly, standing and looking over the two of you before finally relaxing once she knows you're alright. With a relieved sigh, she comes forward, listening to Judy tell her all about what the two of them came up to. You gain a playful glare from both of them when Judy mentions you conveniently forgetting to tell her about one house's reputation for giving children heart attacks.</p>          
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">Once Judy takes a breath, pausing her rapid-fire speaking, you finally get to cut in with "And we were very careful, so you don't have to worry about anything." Both Ed and Lorraine give you a grateful look, and you earn a soft, loving kiss from the latter that you sigh into contentedly. Soon, the four of you settle in for the night, agreeing to let Judy stay up a bit later than normal to watch a movie, still in costume. She acquires the spot between her parents, while you get the luxury of cuddling with Lorraine, a position which doesn't take long to become your head in her lap as get her fingers through your hair. And once Judy goes to bed, Ed pulls you up so you're draped across both of them, legs across Lorraine's lap and head now on Ed's. He leaves a kiss on your forehead, your nose, both cheeks, and finally your lips, each one making you giggle breathlessly while Lorraine's fingers run across your thighs. It's not an action meant to lead to more, simply a soft, comforting touch that leaves shivers on your skin through your dress. The three of you spend the rest of the night there, and when you also go to bed, you fall asleep with the feeling of Lorraine's head snuggled into your collar and Ed's arm wrapped around both of you protectively.</p>
+      </div>
+      <br>
+      <br>
+    </div>
+
+    <div class="card love">
+      <h4 style="color:grey; font-family: Lucida Console, Courier New, monospace">YOU ARE READING...</h4>
+      <h2 style="color:grey;">KANJANA's MOIDEEN!</h2>
+      <p style="color: grey; font-size:15px; font-family: 'Trebuchet MS', sans-serif;">A Fan Fiction featuring Kanjanamaala and Moideen from the movie 'Ennu ninte Moideen' - which was based on a true story and their eternal Love.</p5>
+      <div class="kanjanamoideen"></div>
+      <br>
+      <button class="button" style="background: linear-gradient(to bottom right, #ef2112, #7b524d);" onclick="love1()">Read Chapter 1</button> 
+      <div class="lovestory" id="lovechap1" style="display: none;">
+        <p style="color:white; text-align: left; padding: 20px; font-family: Lucida Console, Courier New, monospace">In the beginning it was just friendship.Between Moideen and Kanchana. He used to lend her books, mainly novels and poems. Once he gave her a collection of poems by a malayalam romantic poet, and she found sentences expressing love and romance were underlined,” says Kanchana. “He simply smiled when she asked about it. But very soon she started getting poetic love letters along with the books.” Kanchana had no cause to question Moideen’s sincerity or how much he cared about her, so it never crossed her mind to turn him down either.</p>        
+        <p style="color:white; text-align: left; padding: 20px; font-family: Lucida Console, Courier New, monospace">It was about a year later that her mother noticed a letter from Moideen while cleaning her bookshelf. All hell broke loose once both families came to know about the affair,” she says. Despite the long-standing friendship between the two families, in the ultra-conservative Kerala of the 1950s, there was no question of the possibility of an inter-faith marriage. The families broke all links with each other. The life sentences of the two lovers began soon after.</p>
+      </div>
+      <br>
+      <br>
+      <button class="button" style="background: linear-gradient(to bottom right, #ef2112, #7b524d);" onclick="love2()">Read Chapter 2</button>
+      <div class="lovestory" id="lovechap2" style="display: none;">
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">Kanchana was forced to discontinue her studies and, put under house arrest. Moideen was thrown out of his home for refusing to marry a girl his family chose. Under pressure from community leaders, his father cut him out of his will and denied him a share in the family property, even tried to kill him. His father shot Moideen using a country gun when he tried to forcibly barge into the house. But Moideen had a miraculous escape even though he sustained multiple serious injuries. On another occasion, his father stabbed him 22 times for giving a critical speech in public but Moideen survived again. Remorseful after the second attack, his father relented to giving him a share of the family property, but never allowed him to enter the parental home or meet his mother.</p>        
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">Moideen was a multi-faceted personality. Apart from being a known short story writer, he was a footballer, swimmer, political activist and painter. But she never saw him do any of those things.</p>
+      </div>
+      <br>
+      <br>
+      <button class="button" style="background: linear-gradient(to bottom right, #ef2112, #7b524d);" onclick="love3()">Read Chapter 3</button>
+      <div class="lovestory" id="lovechap3" style="display: none;">
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">Separated and chaperoned all the time, it was impossible for the two to talk, let alone meet without being found out. Soon after their confinement, they worked out a system of communication. They wrote each other letters in an encoded language, and sent them through trusted servants and farm hands.</p>         
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">It was she who developed the language in my free time at home using the Malayalam alphabet. The vocabulary was created by misspelling common words. With the help of supportive servants at home and on the estate, she sent him basic concepts of the code language. It was a Herculean task to ensure that a letter would safely reach the other’s hands. For 10 years, they hardly managed to even get a glimpse of each other. she saw him once while travelling in the village canoe. He spoke a few words to me. (The first time in 10 years).</p>
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">At one point, they decided to elope. But concern for their families stopped them. Hers was a joint family with too many members. Elders told me to avoid that path as the infamy would affect the marriage prospects of her's unmarried sister. In his case, his father died and it became his responsibility to look after the rest of the family.
+          Eventually, her confinement lasted exactly 25 years, till a time when it became entirely unnecessary to keep one apart from the other—when Moideen died in the Iruvanji.
+          During the monsoon season of 1982, she was 41 and he 44. One rain-drenched evening, Kanchana, like everyone else in Mukkom, heard about the tragic canoe accident in which the craft overturned in the river, and a person who had saved several passengers drowned in the whirls of the river. It took three days to fish out the body and identify it as the remains of Moideen.
+          Kanchana didn’t get to see his body, there was no one to accompany her to his house, and the decomposed body was buried in a hurry. Following his death, she tried to commit suicide six times. After the last attempt, she was admitted to a local hospital, where she again tried to end her life. A fortnight after Moideen’s death, Kanchana had an unexpected visitor: Moideen’s mother. She told Kanchana that if she didn’t wish to marry anyone else then Kanchana should live as her son’s widow. Kanchana moved into Moideen’s house with his mother.
+        </p>
+      </div>
+      <br>
+      <br>
+      <button class="button" style="background: linear-gradient(to bottom right, #ef2112, #7b524d);" onclick="love4()">Read Chapter 4</button>
+      <div class="lovestory" id="lovechap4" style="display: none;">
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">Before her death a few years later, his mother willed all of Moideen’s properties to Kanchana so she could continue some of the social service work Moideen had begun.</p>
+          
+        <p style="color:white; text-align: left; padding: 10px; font-family: Lucida Console, Courier New, monospace">Just before his death, Moideen had set up a village centre to empower destitute women. Kanchana now runs the institution and its library, which contains many of Moideen’s books. Under the banner of BP Moideen Seva Mandir, the charitable organisation named after him, Kanchana also runs a homeless shelter, a family counselling centre and a blood donors’ network. She also runs a centre that provides children swimming classes for free. A state-level award for bravery was also instituted in memory of Moideen. she's happy now because youngsters in this region are able to swim across the river even during heavy monsoon. That is her's biggest achievement and tribute to Moideen.
+          But it isn’t easy to flee the reminders of the losses in her life. Kanchana’s office is in the village bazaar, a stone’s throw away from the mighty Iruvanji. “In the last 27 years, neither have she used a canoe nor gone to the spot from where Moideen swam across the river to reach the accident spot. She prefer to travel by road,” says Kanchana. </p>
+      </div>
+      <br>
+      <br>
+    </div>
+
+  </div>
+
+  
+
+  <div class="rightcolumn">
+    <div class="card" style="background-image: url('https://img.wallpapersafari.com/desktop/1920/1080/33/46/eYI7Po.jpg'); box-shadow: 0 0 8px 8px black inset;">
+      <h2 style="color:grey; font-family: Lucida Console, Courier New, monospace">About Me</h2>
+      <div class="badriimg"></div>
+      <p style="color:grey; font-family: Lucida Console, Courier New, monospace">I am Badri Narayanan, 19 years old, currently pursuing Computer Science Enginnering in LPU,Punjab. I am a passionate web developer and I love watching movies and stories. In this blog, I have created some fan fiction strories. Hope you Enjoy!</p>
+      <p style="color:grey; font-family: Lucida Console, Courier New, monospace">Love,</p>
+      <p style="color:grey; font-family: Lucida Console, Courier New, monospace">Badri</p>
+    </div>
+    <div class="card">
+      <h2>Click on Images to watch Movies</h2>
+      <p> The Conjuring : </p>
+      <a href="https://www.youtube.com/watch?v=k10ETZ41q5o"><img border="0" alt="W3Schools" src="https://www.denofgeek.com/wp-content/uploads/2017/11/best-horror-movies-the-conjuring-2.jpg?fit=1920%2C1080" width="200px" height="200px"></a>
+      <br>
+      <p> Ennu Ninte Moideen : </p>
+      <a href="https://www.hotstar.com/in/movies/ennu-ninte-moideen/1000152794/watch"><img border="0" alt="W3Schools" src="https://itsthrill.files.wordpress.com/2015/10/ennu-ninte-moideen-wallpaper2.jpg" width="200px" height="300px"></a>
+      <br>
+    </div>
+    <div class="card">
+      <h3>You can Reach Me on</h3>
+      <a href="mailto:badri892002@example.com"><img border="0" alt="W3Schools" src="data:image/png;base64,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" width="100" height="60"></a>
+      <a href="https://www.instagram.com/badri/?hl=en"><img border="0" alt="W3Schools" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png" width="60" height="60"></a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Copyright ©2022 All rights reserved | This Blog is made with <span style="font-size:300%;color:red;">&hearts;</span> by Badri Narayanan!</p>
+</div>
+
+<script>
+  function horror1() {
+    var x = document.getElementById("horrorchapter1");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function horror2() {
+    var x = document.getElementById("horrorchapter2");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function horror3() {
+    var x = document.getElementById("horrorchapter3");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function horror4() {
+    var x = document.getElementById("horrorchapter4");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function love1() {
+    var x = document.getElementById("lovechap1");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function love2() {
+    var x = document.getElementById("lovechap2");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function love3() {
+    var x = document.getElementById("lovechap3");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function love4() {
+    var x = document.getElementById("lovechap4");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
